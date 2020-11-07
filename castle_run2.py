@@ -1,6 +1,5 @@
 import pygame
 import os
-print("ciao")
 
 pygame.init()
 pygame.mixer.init()
