@@ -1,5 +1,5 @@
 # gioco vacanze
-aaa
+
 progetto svolto da: 
 - Simone Melli
 - Matteo Zaccarelli
@@ -8,7 +8,8 @@ progetto svolto da:
 le immagini e i suoni del gioco sono presenti nella cartella asset
 
 come far partire il gioco:
-- scaricare il gioco e le immagini e i suoni e infine metterli in un'unica cartella
+- scaricare il gioco e le immagini e i suoni
+- inserire la cartella asset(con suoni e immagini) e il codice all'interno di un'unica cartella
 - eseguire il programma, il programma riesce a trovare le immagini in qualunque cartella si trovino quindi non è necessario cambiare il percorso delle immagini
 
 
