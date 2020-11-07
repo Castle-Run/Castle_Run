@@ -220,7 +220,7 @@ while True:
         # Il giocatore chiude la finestra del gioco premendo il pulsante X in alto a destra
         if event.type == pygame.QUIT:
             quit()
-        # il personaggio sale premendo la barra spaziatrice. Il personaggio non può salire se xPers != X_PERS_INIT
+        # il personaggio sale premendo la barra spaziatrice. Il personaggio non può salire se yPers != Y_PERS_INIT
         elif event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
             if yPers < Y_PERS_INIT:
                 is_running = False 
