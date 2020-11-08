@@ -20,7 +20,7 @@ Nel gioco l'obiettivo principale è saltare, cioè di evitare i nemici che verra
 I comandi del gioco sono:
 - Spazio, per saltare
 - Freccia su, per cambiare sfondo dopo essere morto
-- Freccia giù, per aumentare di 5 il verde dello sfondo
+- Freccia giù, per aumentare di 5 il verde dello sfondo 
 - Freccia a sinistra, per aumentare di 5 il rosso dello sfondo
 - Freccia a destra, per aumentare di 5 il blu dello sfondo
-- C, per far tornare lo sfondo al colore originale
+- C, per far tornare lo sfondo al colore originale (R = 8, G = 12, B = 57)
