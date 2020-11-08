@@ -61,13 +61,19 @@ X_R = 10
 X_G = X_R
 X_B = X_R
 
+
+
+
 fpsClock = pygame.time.Clock()
 FONT = pygame.font.SysFont("MEDIEVAL GOTHIC", 100, bold = True)
 FONT2 = pygame.font.SysFont("MEDIEVAL GOTHIC", 20, bold = True)
 
 
 SCREEN = pygame.display.set_mode((WIDTH, HEIGHT))
+
 pygame.display.set_caption("CASTLE RUN")
+
+
 
 
 def inizializza(): # Inizializzo le variabili
@@ -108,7 +114,10 @@ def inizializza(): # Inizializzo le variabili
     green = FONT2.render(str(verde), 1, (0, g, 0))
     
 inizializza()
-       
+    
+
+    
+   
 
 def disegna_oggetti():
     SCREEN.fill(colore)
@@ -145,7 +154,11 @@ def traslazione_oggetti():
 def aggiorna():
     pygame.display.update()
     pygame.time.Clock().tick(fps)
-           
+        
+        
+        
+        
+
 
 while True:
     if punti >= 10:
@@ -172,6 +185,7 @@ while True:
         while hai_perso:
             inizializza()
             disegna_oggetti()
+            fps = FPS_INIT
             SCREEN.blit(GAMEOVER, (X_GAMEOVER, Y_GAMEOVER))
             SCREEN.blit(red, (X_R, Y_R))
             SCREEN.blit(blue, (X_B, Y_B))
@@ -198,7 +212,8 @@ while True:
                 elif event.type == pygame.KEYDOWN and event.key == pygame.K_RIGHT:
                     B += 5
                     if B >= 255:
-                        B = 0               
+                        B = 0
+                    
                     
                 elif event.type == pygame.KEYDOWN and event.key == pygame.K_c:
                     R = 8
@@ -214,6 +229,7 @@ while True:
                     pygame.mixer.music.play()
                     hai_perso = False
                 
+
         
     # Controllo quale tato viene premuto dal giocatore
     for event in pygame.event.get():
@@ -237,6 +253,8 @@ while True:
                 if yPers == Y_PERS_MIN: # yPers raggiunge 158 e poi comincia a scendere
                     break
                 traslazione_oggetti()               
-                aggiorna()          
+                aggiorna()
+                
+            
                     
     aggiorna()
