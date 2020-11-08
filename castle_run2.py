@@ -41,6 +41,10 @@ X_DRAGO = 400
 Y_DRAGO = 3
 X_PUNTI_INIT = 238
 Y_PUNTI = 60
+X_MVP_INIT = 350
+Y_MVP = 30
+X_NOTA_INIT = 345
+Y_NOTA = 8
 WIDTH = 500
 HEIGHT = 650
 X_GAMEOVER = 160
@@ -60,6 +64,7 @@ Y_B = 35
 X_R = 10
 X_G = X_R
 X_B = X_R
+Punteggio_MVP = [0]
 
 
 
@@ -67,7 +72,7 @@ X_B = X_R
 fpsClock = pygame.time.Clock()
 FONT = pygame.font.SysFont("MEDIEVAL GOTHIC", 100, bold = True)
 FONT2 = pygame.font.SysFont("MEDIEVAL GOTHIC", 20, bold = True)
-
+FONT3 = pygame.font.SysFont("MEDIEVAL GOTHIC", 50, bold = True)
 
 SCREEN = pygame.display.set_mode((WIDTH, HEIGHT))
 
@@ -95,6 +100,8 @@ def inizializza(): # Inizializzo le variabili
     global red  
     global blue
     global green
+    global xMvp
+    global xNota
     r = R
     g = G
     b = B
@@ -106,12 +113,15 @@ def inizializza(): # Inizializzo le variabili
     xNemico = X_NEMICO_INIT
     punti = 0
     xPunti = X_PUNTI_INIT
+    xMvp = X_MVP_INIT
+    xNota = X_NOTA_INIT
     rosso = ("RED = ") + str(r)
     blu = ("BLUE = ") + str(b)
     verde = ("GREEN = ") + str(g)
     red = FONT2.render(str(rosso), 1, (r, 0, 0))
     blue = FONT2.render(str(blu), 1, (0, 0, b))
     green = FONT2.render(str(verde), 1, (0, g, 0))
+    
     
 inizializza()
     
@@ -133,9 +143,16 @@ def disegna_oggetti():
     SCREEN.blit(DRAGO, (X_DRAGO, Y_DRAGO))
     PUNTEGGIO = FONT.render(str(punti), 1, (255, 255, 255))
     SCREEN.blit(PUNTEGGIO, (xPunti, Y_PUNTI))
-    
-    
-    
+    NOTA = FONT2.render(("MVP"), 1, (255, 255, 255))
+    MVP = FONT3.render(str(punteggio_max), 1, (255, 255, 255))
+    if punteggio_max <= 9:
+        SCREEN.blit(MVP, (xMvp, Y_MVP))
+    if punteggio_max >= 10:
+        SCREEN.blit(MVP, (339, Y_MVP))
+    SCREEN.blit(NOTA, (xNota, Y_NOTA))
+            
+
+
 def movimento_oggetti():
     global xBase
     global xNemico
@@ -157,10 +174,12 @@ def aggiorna():
         
         
         
+
         
 
 
-while True:
+while True:   
+    punteggio_max = max(Punteggio_MVP)
     if punti >= 10:
         xPunti = 213
     hai_perso = True
@@ -170,11 +189,13 @@ while True:
         yPers += VEL_DISCESA        
         if yPers == Y_PERS_INIT:
             punti += 1
+            Punteggio_MVP.append(punti)
         if yPers >= Y_PERS_INIT:
             yPers = Y_PERS_INIT
             CADUTA.play()
             fps += 15
-            
+    
+             
 
     traslazione_oggetti()
     
@@ -185,11 +206,19 @@ while True:
         while hai_perso:
             inizializza()
             disegna_oggetti()
-            fps = FPS_INIT
+            fps = FPS_INIT    
+            punteggio_max = max(Punteggio_MVP)
             SCREEN.blit(GAMEOVER, (X_GAMEOVER, Y_GAMEOVER))
             SCREEN.blit(red, (X_R, Y_R))
             SCREEN.blit(blue, (X_B, Y_B))
             SCREEN.blit(green, (X_G, Y_G))
+            NOTA = FONT2.render(("MVP"), 1, (255, 255, 255))
+            MVP = FONT3.render(str(punteggio_max), 1, (255, 255, 255))
+            if punteggio_max <= 9:
+                SCREEN.blit(MVP, (xMvp, Y_MVP))
+            if punteggio_max >= 10:
+                SCREEN.blit(MVP, (339, Y_MVP))     
+            SCREEN.blit(NOTA, (xNota, Y_NOTA))
             pygame.mixer.music.stop()
             aggiorna()
             
