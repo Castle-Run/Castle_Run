@@ -67,8 +67,6 @@ X_B = X_R
 Punteggio_MVP = [0]
 
 
-
-
 fpsClock = pygame.time.Clock()
 FONT = pygame.font.SysFont("MEDIEVAL GOTHIC", 100, bold = True)
 FONT2 = pygame.font.SysFont("MEDIEVAL GOTHIC", 20, bold = True)
@@ -77,8 +75,6 @@ FONT3 = pygame.font.SysFont("MEDIEVAL GOTHIC", 50, bold = True)
 SCREEN = pygame.display.set_mode((WIDTH, HEIGHT))
 
 pygame.display.set_caption("CASTLE RUN")
-
-
 
 
 def inizializza(): # Inizializzo le variabili
@@ -121,13 +117,9 @@ def inizializza(): # Inizializzo le variabili
     red = FONT2.render(str(rosso), 1, (r, 0, 0))
     blue = FONT2.render(str(blu), 1, (0, 0, b))
     green = FONT2.render(str(verde), 1, (0, g, 0))
-    
-    
+      
 inizializza()
-    
-
-    
-   
+     
 
 def disegna_oggetti():
     SCREEN.fill(colore)
@@ -152,7 +144,6 @@ def disegna_oggetti():
     SCREEN.blit(NOTA, (xNota, Y_NOTA))
             
 
-
 def movimento_oggetti():
     global xBase
     global xNemico
@@ -170,12 +161,7 @@ def traslazione_oggetti():
 
 def aggiorna():
     pygame.display.update()
-    pygame.time.Clock().tick(fps)
-        
-        
-        
-
-        
+    pygame.time.Clock().tick(fps)     
 
 
 while True:   
@@ -194,8 +180,7 @@ while True:
             yPers = Y_PERS_INIT
             CADUTA.play()
             fps += 15
-    
-             
+              
 
     traslazione_oggetti()
     
@@ -283,7 +268,6 @@ while True:
                     break
                 traslazione_oggetti()               
                 aggiorna()
-                
-            
+              
                     
     aggiorna()
